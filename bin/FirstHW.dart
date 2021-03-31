@@ -11,10 +11,16 @@ enum DayOfTheWeek {
   Sunday
 }
 
-class Task {
+abstract class Basis {
+  void sayHello();
+}
+
+class Task extends Basis {
   int id;
   String name;
   int category;
+  static var listing = [1, 2, 3, 4, 5];
+  var listingMy = [-2, -1, 0, ...listing];
   static final categoryList = <int, String>{
     1: 'home',
     2: 'work',
@@ -39,6 +45,11 @@ class Task {
   }
 
   Task({this.id, this.name, this.category, this.dayIndex});
+
+  @override
+  void sayHello() {
+    print("Hello");
+  }
 
   @override
   String toString() =>
